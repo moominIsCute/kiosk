@@ -36,6 +36,9 @@ public class Main {
                     case 4:
                         System.out.println("Hamburger");
                         break;
+                    default:
+                        System.out.println("메뉴 개발에 힘써볼게요");
+                        break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("숫자를 입력해주세요.");
