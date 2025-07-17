@@ -1,11 +1,15 @@
 package org.example.kiosk.lv2;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        List<MenuItem> menuItems = new ArrayList<>();
+        MenuItem menuItem = new MenuItem("",0,"");
         System.out.println("Hello, Kiosk!");
         Scanner scanner = new Scanner(System.in);
         boolean start = true;
@@ -25,25 +29,36 @@ public class Main {
                         start = false;
                         break;
                     case 1:
-                        System.out.println("ShackBurger");
+                        menuItem.setName("ShackBurger");
+                        menuItem.setPrice(6.9);
+                        menuItem.setDec("토마토, 양상추, 쉑소스가 토핑된 치즈버거");
                         break;
                     case 2:
-                        System.out.println("SmokeShack");
+                        menuItem.setName("SmokeShack");
+                        menuItem.setPrice(8.9);
+                        menuItem.setDec("베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
                         break;
                     case 3:
-                        System.out.println("Cheeseburger");
+                        menuItem.setName("Cheeseburger");
+                        menuItem.setPrice(6.9);
+                        menuItem.setDec("비프패티를 기반으로 야채가 들어간 기본버거");
                         break;
                     case 4:
-                        System.out.println("Hamburger");
+                        menuItem.setName("Hamburger");
+                        menuItem.setPrice(5.4);
+                        menuItem.setDec("토마토, 양상추, 쉑소스가 토핑된 치즈버거");
                         break;
                     default:
                         System.out.println("메뉴 개발에 힘써볼게요");
                         break;
+
                 }
             } catch (InputMismatchException e) {
                 System.out.println("숫자를 입력해주세요.");
                 scanner.nextLine();
             }
+            menuItems.add(menuItem);
+
         }
     }
 }
