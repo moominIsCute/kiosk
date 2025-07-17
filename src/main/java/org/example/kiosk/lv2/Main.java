@@ -9,11 +9,12 @@ public class Main {
 
     public static void main(String[] args) {
         List<MenuItem> menuItems = new ArrayList<>();
-        MenuItem menuItem = new MenuItem("",0,"");
+
         System.out.println("Hello, Kiosk!");
         Scanner scanner = new Scanner(System.in);
         boolean start = true;
         while (start) {
+            MenuItem menuItem = new MenuItem("",0,"");
             try {
                 System.out.println(" [ SHAKESHACK MENU ]");
                 System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
@@ -32,21 +33,25 @@ public class Main {
                         menuItem.setName("ShackBurger");
                         menuItem.setPrice(6.9);
                         menuItem.setDec("토마토, 양상추, 쉑소스가 토핑된 치즈버거");
+                        menuItems.add(menuItem);
                         break;
                     case 2:
                         menuItem.setName("SmokeShack");
                         menuItem.setPrice(8.9);
                         menuItem.setDec("베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
+                        menuItems.add(menuItem);
                         break;
                     case 3:
                         menuItem.setName("Cheeseburger");
                         menuItem.setPrice(6.9);
                         menuItem.setDec("비프패티를 기반으로 야채가 들어간 기본버거");
+                        menuItems.add(menuItem);
                         break;
                     case 4:
                         menuItem.setName("Hamburger");
                         menuItem.setPrice(5.4);
                         menuItem.setDec("토마토, 양상추, 쉑소스가 토핑된 치즈버거");
+                        menuItems.add(menuItem);
                         break;
                     default:
                         System.out.println("메뉴 개발에 힘써볼게요");
@@ -57,8 +62,10 @@ public class Main {
                 System.out.println("숫자를 입력해주세요.");
                 scanner.nextLine();
             }
-            menuItems.add(menuItem);
-
+            System.out.println("주문내역");
+            for (int i =0; i<menuItems.size(); i++){
+                System.out.println(menuItems.get(i));
+            }
         }
     }
 }
