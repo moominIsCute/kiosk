@@ -39,10 +39,9 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return "MenuItem{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", dec='" + dec + '\'' +
-                '}';
+        return "선택한 메뉴: " +
+                "버거이름은 " + name + '\'' +
+                ", 가격은 " + price +
+                ", 설명은 " + dec ;
     }
 }
