@@ -28,7 +28,6 @@ public class MenuItem {
     }
 
     public String getDec() {
-
         return dec;
     }
 
@@ -37,8 +36,14 @@ public class MenuItem {
         this.dec = dec;
     }
 
+
+
     @Override
     public String toString() {
         return "선택한 메뉴: " + name + " | W " + price + " | " + dec;
+    }
+
+    public String toStringBurgerMenu(int i) {
+        return  i + "." + name + " | W " + price + " | " + dec;
     }
 }
