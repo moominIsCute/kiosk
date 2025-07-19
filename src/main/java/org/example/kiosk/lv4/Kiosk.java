@@ -1,0 +1,84 @@
+package org.example.kiosk.lv4;
+
+import org.example.kiosk.lv4.MenuItem;
+
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Kiosk {
+    List<MenuItem> menuItems;
+    private boolean startKey;
+    int menuNum;
+
+    public void displayMenu() {
+        System.out.println(" [ MAIN MENU ]");
+        System.out.println("1. Burgers");
+        System.out.println("2. Drinks");
+        System.out.println("3. Desserts");
+        System.out.println("0. 종료      | 종료");
+        System.out.print("메뉴 선택: ");
+    }
+
+    public void setMenuItems() {
+        this.menuItems.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
+        this.menuItems.add(new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
+        this.menuItems.add(new MenuItem("Cheeseburger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
+        this.menuItems.add(new MenuItem("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
+    }
+
+    public boolean isStartKey() {
+        return startKey;
+    }
+
+    public void setStartKey(boolean startKey) {
+        this.startKey = startKey;
+    }
+
+    public Kiosk(List<MenuItem> menuItems) {
+        this.menuItems = menuItems;
+        this.setMenuItems();
+        this.startKey = true;
+    }
+
+
+    void start() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (this.isStartKey()) {
+            try {
+                this.displayMenu();
+                menuNum = scanner.nextInt();
+                switch (menuNum) {
+                    case 0:
+                        System.out.println("프로그램을 종료합니다.");
+                        startKey = false;
+                        break;
+                    case 1:
+                        System.out.println(menuItems.get(0));
+                        break;
+                    case 2:
+                        System.out.println(menuItems.get(1));
+                        break;
+                    case 3:
+                        System.out.println(menuItems.get(2));
+                        break;
+                    case 4:
+                        System.out.println(menuItems.get(3));
+                        break;
+                    default:
+                        System.out.println("메뉴 개발에 힘써볼게요");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("숫자를 입력해주세요.");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    public void helloKiosk() {
+        System.out.println("Hello, Kiosk!");
+    }
+}
