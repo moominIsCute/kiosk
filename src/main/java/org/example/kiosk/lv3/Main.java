@@ -12,10 +12,6 @@ public class Main {
     public static void main(String[] args) {
         Kiosk kiosk = new Kiosk(new ArrayList<MenuItem>());
         kiosk.helloKiosk();
-        kiosk.setMenuItems();
-
         kiosk.start();
-
-
     }
 }

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Kiosk {
     List<MenuItem> menuItems;
-    private boolean startKey = true;
+    private boolean startKey;
     int menuNum;
 
     public void displayMenu() {
@@ -20,12 +20,14 @@ public class Kiosk {
         System.out.println("0. 종료      | 종료");
         System.out.print("메뉴 선택: ");
     }
+
     public void setMenuItems() {
         this.menuItems.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
         this.menuItems.add(new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
         this.menuItems.add(new MenuItem("Cheeseburger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
         this.menuItems.add(new MenuItem("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
     }
+
     public boolean isStartKey() {
         return startKey;
     }
@@ -34,25 +36,16 @@ public class Kiosk {
         this.startKey = startKey;
     }
 
-    public Scanner getScanner() {
-        return scanner;
-    }
-
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
     public Kiosk(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
-        //this.startKey = startKey;
-        //this.scanner = scanner;
+        this.setMenuItems();
+        this.startKey = true;
     }
 
     Scanner scanner = new Scanner(System.in);
 
-
     void start() {
-        while (startKey) {
+        while (this.isStartKey()) {
             try {
                 this.displayMenu();
                 menuNum = scanner.nextInt();
@@ -82,13 +75,9 @@ public class Kiosk {
                 scanner.nextLine();
             }
         }
-
-
     }
 
     public void helloKiosk() {
         System.out.println("Hello, Kiosk!");
     }
-
-
 }
