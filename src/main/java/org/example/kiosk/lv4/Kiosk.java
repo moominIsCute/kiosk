@@ -37,7 +37,7 @@ public class Kiosk {
                 if (menuNum == 1) {
                     menu.displayBurgerMenu();
                     menuNum2 = scanner.nextInt();
-                    if (menuNum2 == 1) {
+                    if (menuNum2 == 0) {
                         continue;
                     }
                     switch (menuNum2) {

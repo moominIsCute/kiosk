@@ -5,20 +5,16 @@ import java.util.Scanner;
 
 
 public class Kiosk {
-    Menu menu;
+    // 필드를 private로 선언하여 외부에서 직접 접근을 막았습니다.
+    private Menu menu;
     private boolean startKey;
-    int menuNum;
-    int menuNum2;
+    private int menuNum;
+    private int menuNum2;
 
     public boolean isStartKey() {
         return startKey;
     }
 
-    public void setStartKey(boolean startKey) {
-        this.startKey = startKey;
-    }
-
-    //  키오스크가 메뉴 받게 하는데 오래 생각했다. 너무 어렵다.
     public Kiosk(Menu menu) {
         this.menu = menu;
         this.startKey = true;
@@ -34,7 +30,7 @@ public class Kiosk {
                 if (menuNum == 1) {
                     menu.displayBurgerMenu();
                     menuNum2 = scanner.nextInt();
-                    if (menuNum2 == 1) {
+                    if (menuNum2 == 0) {
                         continue;
                     }
                     switch (menuNum2) {

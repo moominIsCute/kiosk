@@ -1,9 +1,5 @@
 package org.example.kiosk.lv4;
 
-import org.example.kiosk.lv4.Kiosk;
-import org.example.kiosk.lv4.MenuItem;
-
-import java.util.ArrayList;
 
 public class Main {
 
